@@ -1,0 +1,39 @@
+div.brand-logo {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 0.1rem solid black;
+  padding: 0.5rem;
+}
+
+div.brand-logo span:first-of-type {
+  width: 2rem;
+  height: 2rem;
+  background-color: blue;
+  border-radius: 0 100%;
+  display: inline-block;
+}
+
+div.brand-logo span:last-of-type {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  background-color: blue;
+  border-radius: 100% 0;
+}
+
+nav.nav-container {
+  position: fixed;
+  background-color: red;
+  bottom: 0;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+ul.nav-list {
+  display: flex;
+  justify-content: space-around;
+}
+
+li.nav-list-item a {
+  color: #fff;
+}
