@@ -4,8 +4,10 @@ import {
   createAsyncThunk,
 } from "@reduxjs/toolkit";
 
-const initialState = createEntityAdapter({
-  status: "pending",
+const postAdapter = createEntityAdapter({});
+
+const initialState = postAdapter.getInitialState({
+  status: "idle",
   error: null,
   count: 0,
 });
@@ -16,7 +18,7 @@ const postSlice = createSlice({
   reducers: {
     updateCount: {
       reducer: (state, action) => {
-        state.count = state.count + action.payload + 1;
+        state.count = state.count + action.payload.num;
       },
       prepare(num) {
         return {
@@ -30,4 +32,5 @@ const postSlice = createSlice({
 });
 
 export const { updateCount } = postSlice.actions;
+export const getPost = (state) => state.posts.count;
 export default postSlice.reducer;
