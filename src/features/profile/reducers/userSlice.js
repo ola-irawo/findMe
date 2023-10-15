@@ -28,3 +28,13 @@ const userSlice = createSlice({
 });
 
 export default userSlice.reducer;
+const posts = [];
+// onSnapshot(postRef, (snapshot) => {
+//   posts = snapshot.docs.map((doc) => {
+//     return {
+//       ...doc.data(),
+//       id: doc.id,
+//     };
+//   });
+//   console.log(posts); // Log the posts inside the callback
+// });

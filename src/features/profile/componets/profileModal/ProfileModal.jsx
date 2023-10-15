@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import {Button, addUser} from "../../../index"
 import "./profile-modal.css"
+import { nanoid } from '@reduxjs/toolkit'
 
 const ProfileModal = () => {
     const [formData, setFormData] = useState({
@@ -9,6 +10,8 @@ const ProfileModal = () => {
         status: "",
         location: "",
         birth_date: "",
+        userId: nanoid(),
+        hanko_session: localStorage.getItem("hanko_session")
     })
     const dispatch = useDispatch()
     const handleForm = (e) => {
@@ -32,10 +35,11 @@ const ProfileModal = () => {
       <form onSubmit={formSumbit} className="profile-modal-form">
         <Button type={"button"} text={"x"} className={"close-profile-modal"} />
 
-        <label htmlFor="">
+        <label htmlFor="user_name">
             <small>Name:</small>
             <input 
                 type="text"
+                id="user_name"
                 name="user_name"
                 placeholder="User Name"
                 value={formData.user_name}
@@ -43,10 +47,11 @@ const ProfileModal = () => {
             />
         </label>
 
-        <label htmlFor="">
+        <label htmlFor="birth_date">
             <small>Birth date:</small>
             <input 
                 type="date"
+                id="birth_date"
                 name="birth_date"
                 placeholder="Birth date"
                 value={formData.birth_date}
@@ -54,10 +59,11 @@ const ProfileModal = () => {
             />
         </label>
 
-        <label htmlFor="">
+        <label htmlFor="location">
             <small>Location:</small>
             <input 
                 type="text"
+                id="location"
                 name="location"
                 placeholder="Location"
                 value={formData.location}
@@ -65,17 +71,17 @@ const ProfileModal = () => {
             />
         </label>
 
-        <label htmlFor="">
+        <label htmlFor="status">
             <small>Status:</small>
             <input 
                 type="text"
+                id="status"
                 name="status"
                 placeholder="Status"
                 value={formData.status}
                 onChange={handleForm}
             />
         </label>
-
         
         <Button text={"Update Profile"} />
       </form>
