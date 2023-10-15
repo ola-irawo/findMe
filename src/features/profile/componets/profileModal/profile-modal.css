@@ -1,0 +1,41 @@
+div.profile-modal-container {
+  backdrop-filter: blur(0.5rem);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 1rem;
+}
+
+button.close-profile-modal {
+  justify-self: end;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.2rem;
+  border: 0.1rem solid black;
+}
+
+form.profile-modal-form {
+  width: max(60%, 62%);
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+  -webkit-gap: 1rem;
+  transform: translateY(5rem);
+  border: 0.1rem solid black;
+  padding: 1rem;
+  border-radius: 0.4rem;
+}
+
+.profile-modal-form label {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-modal-form label input {
+  padding: 1rem;
+}
+
+.profile-modal-form button:last-of-type {
+  padding: 1rem;
+}

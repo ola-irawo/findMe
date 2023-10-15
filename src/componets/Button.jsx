@@ -1,10 +1,8 @@
 import React from "react";
 
-const Button = () => {
+const Button = ({text, className, handleEvent, type}) => {
   return (
-    <div>
-      <button>This is a button component</button>
-    </div>
+      <button className={className} onClick={handleEvent} type={type}>{text}</button>
   );
 };
 

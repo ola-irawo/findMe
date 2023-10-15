@@ -1,6 +1,7 @@
 div.brand-logo {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   border-bottom: 0.1rem solid black;
   padding: 0.5rem;
 }
@@ -8,7 +9,7 @@ div.brand-logo {
 div.brand-logo span:first-of-type {
   width: 2rem;
   height: 2rem;
-  background-color: blue;
+  background-color: var(--btn-color);
   border-radius: 0 100%;
   display: inline-block;
 }
@@ -17,13 +18,13 @@ div.brand-logo span:last-of-type {
   display: inline-block;
   width: 2rem;
   height: 2rem;
-  background-color: blue;
+  background-color: var(--btn-color);
   border-radius: 100% 0;
 }
 
 nav.nav-container {
   position: fixed;
-  background-color: red;
+  background-color: var(--nav-background);
   bottom: 0;
   width: 100%;
   padding: 0.5rem;
@@ -35,5 +36,6 @@ ul.nav-list {
 }
 
 li.nav-list-item a {
-  color: #fff;
+  color: var(--btn-color);
+  font-size: var(--nav-font);
 }

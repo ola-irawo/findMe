@@ -37,13 +37,13 @@ html {
 
   /* color */
   --background-color: #3331;
-  --btn-color: orange;
-  --text-color: #fff;
-  --primary-color: #333;
+  --btn-color: hsl(200, 100%, 50%);
+  --nav-background: hsl(200, 100%, 6%);
+  --primary-color: #fff;
 
   /* rgb */
   --dark-rgb: rgb(25, 25, 112, 0.2);
-  --light-rgb: rgb(255, 255, 255, 0.1);
+  --light-rgb: rgba(255, 255, 255, 0.1);
 
   /* transiton */
   --fast-transition: 0.3s;
@@ -51,11 +51,11 @@ html {
   --slow-transition: 1s;
 }
 
-section:not(:first-of-type),
+/* section:not(:first-of-type),
 aside {
   margin-top: 5rem;
   padding: 1rem;
-}
+} */
 
 section h2 {
   margin-bottom: 3rem;
@@ -84,6 +84,12 @@ button {
   font-family: inherit;
 }
 
+input,
+textarea {
+  outline: none;
+  border: none;
+}
+
 li {
   list-style-type: none;
 }
@@ -94,10 +100,5 @@ code {
 }
 
 body {
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  color: var(--text-color);
   background-color: var(--background-color);
-  background-blend-mode: soft-light;
 }

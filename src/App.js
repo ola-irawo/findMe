@@ -9,6 +9,7 @@ import Profile from "./pages/Profile";
 import Nav from "./layouts/navbar/Nav";
 import Footer from "./layouts/footer/Footer";
 import Widget from "./layouts/widget/Widget";
+import Setting from "./pages/Setting";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/error" element={<ErrorPage />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/settings" element={<Setting />} />
         </Route>
       </Routes>
 

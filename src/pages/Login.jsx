@@ -4,14 +4,13 @@ import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const hankoApi = process.env.REACT_APP_HANKO_API_URL
-    console.log(hankoApi)
 
     const navigate = useNavigate();
     const hanko = useMemo(() => new Hanko(hankoApi), []);
-    console.log(hanko.user.client)
+    console.log(hanko)
 
     const redirectAfterLogin = useCallback(() => {
-      navigate("/");
+      navigate("/profile");
     }, [navigate]);
 
     useEffect(
