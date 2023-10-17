@@ -9,8 +9,14 @@ const Logout = () => {
   const hankoApi = process.env.REACT_APP_HANKO_API_URL
   const hanko = new Hanko(hankoApi);
 
+  const g = async () => {
+    const user = await hankoInstance.user
+    console.log(user.getAuthCookie())
+  }
+
   useEffect(() => {
     setHankoInstance(hanko)
+    g()
   }, [])
 
   const signOut = async () => {

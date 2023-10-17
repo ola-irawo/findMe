@@ -1,19 +1,43 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
-import {Button, addUser} from "../../../index"
+import { useDispatch, useSelector } from 'react-redux'
+import {Button, addUser, selectAllUsers, user, getCurrentUser} from "../../../index"
 import "./profile-modal.css"
 import { nanoid } from '@reduxjs/toolkit'
+import { useNavigate } from 'react-router-dom'
+import { getUsers } from '../../reducers/userSlice'
 
 const ProfileModal = () => {
+    const [userUid, setUserUid] = useState(localStorage.getItem("userUid") || "")
+
     const [formData, setFormData] = useState({
         user_name: "",
         status: "",
         location: "",
         birth_date: "",
-        userId: nanoid(),
-        hanko_session: localStorage.getItem("hanko_session")
+        userUid,
+        joined: new Date().getFullYear()
     })
+    const navigate = useNavigate()
+
     const dispatch = useDispatch()
+    const allUsers = useSelector(selectAllUsers)
+
+    const setCurrentUser = allUsers.find(user => user.userUid === userUid)
+
+    useEffect(() => {
+        dispatch(getUsers())
+        dispatch(getCurrentUser(setCurrentUser))
+        if(localStorage.getItem("userUid") !== null){
+            return;
+        }
+        else{
+            localStorage.setItem("userUid", nanoid())
+        }
+    }, [])
+
+    const u = useSelector(user)
+    console.log(u)
+
     const handleForm = (e) => {
         const {name, value} = e.target
         setFormData(oldData => {
@@ -26,7 +50,25 @@ const ProfileModal = () => {
 
     const formSumbit = (e) => {
         e.preventDefault()
-        dispatch(addUser(formData))
+
+        try{
+            if(formData){
+                dispatch(addUser(formData))
+                setFormData("")
+                navigate("/")
+            }
+        }
+        catch(error){
+            console.log(error)
+        }
+    }
+
+    if(!userUid){
+        navigate("/login")
+    }
+
+    if(setCurrentUser !== undefined){
+        navigate("/")
     }
 
   return (

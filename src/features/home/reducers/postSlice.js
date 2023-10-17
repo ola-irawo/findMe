@@ -13,6 +13,7 @@ const initialState = postAdapter.getInitialState({
   status: "idle",
   error: null,
   count: 0,
+  showModal: false,
 });
 
 const postRef = collection(db, "posts");
@@ -46,6 +47,18 @@ const postSlice = createSlice({
         };
       },
     },
+    changePostModal: {
+      reducer: (state, action) => {
+        state.showModal = action.payload.value;
+      },
+      prepare(value) {
+        return {
+          payload: {
+            value,
+          },
+        };
+      },
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -69,6 +82,7 @@ export const {
   selectIds: selectPostIds,
 } = postAdapter.getSelectors((state) => state.posts);
 
-export const { updateCount } = postSlice.actions;
+export const { updateCount, changePostModal } = postSlice.actions;
 export const getPost = (state) => state.posts.count;
+export const getPostModal = (state) => state.posts.showModal;
 export default postSlice.reducer;

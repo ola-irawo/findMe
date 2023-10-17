@@ -82,12 +82,14 @@ button {
   font-size: var(--text-font);
   cursor: pointer;
   font-family: inherit;
+  border: none;
 }
 
 input,
 textarea {
   outline: none;
   border: none;
+  resize: none;
 }
 
 li {

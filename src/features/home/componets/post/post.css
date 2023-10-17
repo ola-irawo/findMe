@@ -1,9 +1,180 @@
-div.post-details {
+/* Post Modal */
+button.close-post-modal {
+  color: var(--btn-color);
+  display: flex;
+  margin-left: auto;
+}
+
+div.post-modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(0.2rem);
+}
+
+div.post-modal-wrapper {
   background-color: var(--primary-color);
-  padding: 0.5rem;
-  width: 90%;
+  width: 95%;
+  margin: 0 auto;
+  box-shadow: var(--dark-rgb);
+  padding: 1rem;
+  position: relative;
+  top: 15%;
+  border: 0.1rem solid var(--dark-rgb);
+  border-radius: 0.4rem;
+  box-shadow: 0 0.4rem 0.7rem var(--light-rgb);
+}
+
+div.post-modal-user-details {
+  display: flex;
+}
+
+form.post-modal-form {
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+  -webkit-gap: 1rem;
+}
+
+.post-modal-form textarea {
   height: 10rem;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+div.post-modal-file-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input.post-modal-file {
+  display: none;
+}
+
+.post-file-icon {
+  color: var(--btn-color);
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+button.post-modal-btn {
+  width: 4rem;
+  padding: 0.5rem;
+  background-color: var(--btn-color);
+  color: var(--primary-color);
+}
+
+/* Post Modal End */
+
+div.post-details {
+  display: grid;
+  gap: 1rem;
+  -webkit-gap: 1rem;
+  background-color: var(--primary-color);
+  padding: 1rem;
+  width: 95%;
   margin: 0 auto;
   border-radius: 0.4rem;
   box-shadow: var(--dark-rgb);
+  margin-top: 1rem;
+}
+
+div.post-head {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+
+div.post-sub-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+div.name-date-container {
+  margin-left: 0.5rem;
+}
+
+h4.post-name {
+  color: var(--btn-color);
+  text-decoration: underline;
+}
+
+div.post-img-container {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 0.1rem solid blue;
+  padding: 0.05rem;
+}
+
+.post-img-container img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+div.edit-delete-container {
+  flex: 0.15;
+  display: flex;
+  justify-content: space-between;
+}
+
+div.edit-delete-container button {
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  font-size: 0.9rem;
+  text-align: center;
+  background-color: transparent;
+  transition: background-color, color, var(--normal-transition) ease-in-out;
+}
+
+.edit-delete-container button:hover {
+  background-color: var(--background-color);
+  color: var(--btn-color);
+}
+
+div.post-content {
+  padding: 1.5rem;
+}
+
+div.post-content-img {
+  margin-top: 1rem;
+  width: 100%;
+  max-height: 45em;
+  object-fit: cover;
+  border-radius: 0.3em;
+}
+
+.post-content-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.4rem;
+}
+
+button.post-btn {
+  position: fixed;
+  right: 1rem;
+  bottom: 4rem;
+  background-color: var(--btn-color);
+  color: var(--primary-color);
+  width: 4rem;
+  height: 4rem;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: var(--light-font-weight);
+  text-align: center;
+}
+
+div.post-interaction {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

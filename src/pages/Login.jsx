@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback, useMemo } from 'react'
-import { register, Hanko } from "@teamhanko/hanko-elements";
+import { register, Hanko} from "@teamhanko/hanko-elements";
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
@@ -30,7 +30,6 @@ const Login = () => {
   return (
     <div>
         <hanko-auth />
-      Login
     </div>
   )
 }
