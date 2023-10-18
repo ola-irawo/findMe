@@ -25,6 +25,29 @@ div.post-modal-wrapper {
   border: 0.1rem solid var(--dark-rgb);
   border-radius: 0.4rem;
   box-shadow: 0 0.4rem 0.7rem var(--light-rgb);
+  position: relative;
+}
+
+div.profile-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  background-color: var(--primary-color);
+  /* color: var(--primary-color); */
+}
+
+.profile-progress > div {
+  height: 1rem;
+  background-color: var(--btn-color);
+}
+
+.profile-progress p {
+  text-align: center;
+  margin-top: 1rem;
 }
 
 div.post-modal-user-details {

@@ -70,9 +70,10 @@ const Post = () => {
 
                 <div className="post-content">
                   <p className="post">{post.post}</p>
-                  <div className="post-content-img">
-                    <img src={"https://firebasestorage.googleapis.com/v0/b/fir-login-33c28.appspot.com/o/profile%2FA93EC91F-58DC-417B-A0BC-2ED82FD9CB9E.jpeg?alt=media&token=e51960b3-8efd-445c-8ad5-51a108c20555"} alt="" className="content-img" />
-                  </div>
+                 {post.img && <div className="post-content-img">
+                    <img src={post.img} alt="" className="content-img" />
+                    {/* <img src={"https://firebasestorage.googleapis.com/v0/b/fir-login-33c28.appspot.com/o/profile%2FA93EC91F-58DC-417B-A0BC-2ED82FD9CB9E.jpeg?alt=media&token=e51960b3-8efd-445c-8ad5-51a108c20555"} alt="" className="content-img" /> */}
+                  </div>}
                 </div>
 
                 <div className="post-interaction">

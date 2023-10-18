@@ -1,4 +1,4 @@
-import { db } from "../services/firebase-config/firebase";
+import { db, storage } from "../services/firebase-config/firebase";
 import Post from "./home/componets/post/Post";
 import {
   addDoc,
@@ -28,6 +28,10 @@ export {
   onSnapshot,
   getDocs,
   Post,
+  storage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
   addUser,
   getUsers,
   getCurrentUser,
