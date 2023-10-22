@@ -1,32 +1,31 @@
 import React, { useEffect } from 'react'
 import "./post.css"
-import {db, collection, selectAllUsers, getUsers, serverTimestamp, user, getCurrentUser, Button} from"../../../index"
+import {db, collection, selectAllUsers, getUsers, serverTimestamp, getUser, getCurrentUser, Button} from"../../../index"
 import { useDispatch, useSelector } from 'react-redux'
 import { addPost, changePostModal, getPostModal, getPosts, selectPostById, selectPostIds, selectPosts } from '../../reducers/postSlice'
 import { nanoid } from '@reduxjs/toolkit'
 import { FaComment, FaCopy, FaEdit, FaHeart, FaLink, FaPlus, FaShare, FaTrash } from 'react-icons/fa'
 import PostModal from './componets/PostModal'
+import { useNavigate } from 'react-router-dom'
 
 const Post = () => {
+    const navigate = useNavigate()
     const dispatch = useDispatch()
     const posts = useSelector(selectPosts)
     const allUsers = useSelector(selectAllUsers)
     const postsId = useSelector(selectPostIds)
+    const postModal = useSelector(getPostModal)
+    const currentUser = useSelector(getUser)
 
-    const setCurrentUser = allUsers.find(user => user.userUid === localStorage.getItem("userUid"))
+    const userUid = localStorage.getItem("userUid")
+    const setCurrentUser = allUsers.find(user => user.userUid === userUid)
+    // const getCurrentUserProfile = allUsers.find(user => user.id === post.id)
 
-    const currentUser = useSelector(user)
-    // const user = allUsers.find(user => user.hankoUid === localStorage.getItem("hanko"))
-    // console.log(user)
-
+    const getActiveUser = allUsers.find(user => user.userUid)
     useEffect(() => {
       dispatch(getCurrentUser(setCurrentUser))
     }, [])
-    // console.log(setCurrentUser)
-    // console.log(currentUser)
 
-    const postModal = useSelector(getPostModal)
-    
   return (
     <section className="post-section">
       {postModal && <PostModal />}

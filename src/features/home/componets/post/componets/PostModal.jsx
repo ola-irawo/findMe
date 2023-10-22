@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { FaImage, FaTimes, FaWindowClose } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux'
 import { addPost, changePostModal, getPostModal } from '../../../reducers/postSlice'
-import { getCurrentUser, getDownloadURL, ref, selectAllUsers, storage, uploadBytesResumable, user } from '../../../..'
+import { getCurrentUser, getDownloadURL, ref, selectAllUsers, storage, uploadBytesResumable, getUser } from '../../../..'
 import { nanoid } from '@reduxjs/toolkit'
 
 const PostModal = () => {
@@ -14,9 +14,10 @@ const PostModal = () => {
     const dispatch = useDispatch()
     const allUsers = useSelector(selectAllUsers)
     console.log(post)
+    const userUid = localStorage.getItem("userUid")
 
-    const setCurrentUser = allUsers.find(user => user.userUid === localStorage.getItem("userUid"))
-    const currentUser = useSelector(user)
+    const setCurrentUser = allUsers.find(user => user.userUid === userUid)
+    const currentUser = useSelector(getUser)
 
     useEffect(() => {
         dispatch(getCurrentUser(setCurrentUser))

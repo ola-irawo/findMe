@@ -100,5 +100,5 @@ export const {
 } = userAdapter.getSelectors((state) => state.users);
 
 export const { getCurrentUser } = userSlice.actions;
-export const user = (state) => state.users.currentUser;
+export const getUser = (state) => state.users.currentUser;
 export default userSlice.reducer;

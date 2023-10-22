@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {Button, addUser, selectAllUsers, user, getCurrentUser} from "../../../index"
+import {Button, addUser, selectAllUsers, getUser, getCurrentUser} from "../../../index"
 import "./profile-modal.css"
 import { nanoid } from '@reduxjs/toolkit'
 import { useNavigate } from 'react-router-dom'
@@ -35,7 +35,7 @@ const ProfileModal = () => {
         }
     }, [])
 
-    const u = useSelector(user)
+    const u = useSelector(getUser)
     console.log(u)
 
     const handleForm = (e) => {

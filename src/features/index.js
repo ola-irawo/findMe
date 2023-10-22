@@ -17,7 +17,7 @@ import ProfileModal from "./profile/componets/profileModal/ProfileModal";
 import Button from "../componets/Button";
 import {
   selectAllUsers,
-  user,
+  getUser,
   getCurrentUser,
 } from "./profile/reducers/userSlice";
 import { getUsers } from "./profile/reducers/userSlice";
@@ -41,7 +41,7 @@ export {
   addUser,
   getUsers,
   getCurrentUser,
-  user,
+  getUser,
   selectAllUsers,
   ProfileModal,
   Button,

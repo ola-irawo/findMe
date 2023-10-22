@@ -2,12 +2,12 @@ import React, { useEffect } from 'react'
 import { FaBirthdayCake, FaCalendar, FaMapMarker } from 'react-icons/fa'
 import "./profile-card.css"
 import { useDispatch, useSelector } from 'react-redux'
-import { getCurrentUser, selectAllUsers, user } from '../../..'
+import { getCurrentUser, selectAllUsers, getUser } from '../../..'
 import ProfileCardModal from './componet/ProfileCardModal'
 
 const ProfileCard = () => {
     const dispatch = useDispatch()
-    const currentUser = useSelector(user)
+    const currentUser = useSelector(getUser)
     const allUsers = useSelector(selectAllUsers)
 
     const getActiveUser = allUsers.find(user => user.userUid === localStorage.getItem("userUid"))

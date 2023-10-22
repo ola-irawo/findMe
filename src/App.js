@@ -11,6 +11,7 @@ import Widget from "./layouts/widget/Widget";
 import Setting from "./pages/Setting";
 import UserDetails from "./pages/UserDetails";
 import UserProfile from "./pages/UserProfile";
+import SinglePost from "./pages/SinglePost";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           }
         >
           <Route path="/" element={<Home />} />
+          <Route path=":id" element={<SinglePost />} />
           <Route path="/login" element={<Login />} />
           <Route path="/error" element={<ErrorPage />} />
           <Route path="/logout" element={<Logout />} />
