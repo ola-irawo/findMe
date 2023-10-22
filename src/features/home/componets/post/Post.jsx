@@ -56,7 +56,7 @@ const Post = () => {
                   </div>
                 </div>
 
-                <div className="post-content">
+                <div className="post-content" onClick={() => navigate(`/${post.id}`)}>
                   <p className="post">{post.post}</p>
                  {post.img && <div className="post-content-img">
                     <img src={post.img} alt="" className="content-img" />
