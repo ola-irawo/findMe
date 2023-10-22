@@ -1,0 +1,122 @@
+/* Profile Modal */
+div.user-profile-modal-container {
+  /* background-color: var(--btn-color); */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  backdrop-filter: blur(0.8rem);
+}
+
+form.user-profile-form {
+  display: grid;
+  gap: 1rem;
+  -webkit-gap: 1rem;
+}
+
+label.profile-img-label {
+  height: 10rem;
+  background-color: #333;
+  color: var(--btn-color);
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.profile-img-label button {
+  border: 0.1rem solid var(--btn-color);
+  width: 2.5rem;
+  height: 2.5rem;
+  text-align: center;
+  border-radius: 0.2rem;
+  background-color: transparent;
+  color: var(--btn-color);
+}
+
+.profile-img-label input {
+  display: none;
+}
+
+form.user-profile-form {
+  width: 90%;
+  margin: 0 auto;
+  background-color: var(--nav-background);
+  padding: 1.5rem;
+  border-radius: 0.4rem;
+}
+
+.user-profile-form label:not(:first-of-type) {
+  display: grid;
+  gap: 0.3rem;
+  -webkit-gap: 0.3rem;
+}
+
+.user-profile-form label input,
+.user-profile-form label textarea {
+  padding: 1rem;
+  border-radius: 0.4rem;
+  background-color: #333;
+  color: var(--btn-color);
+}
+
+.user-profile-form label input::placeholder,
+.user-profile-form label textarea::placeholder,
+.user-profile-form label input[type="date"] {
+  color: var(--btn-color);
+}
+
+.user-profile-form label textarea {
+  height: 6rem;
+}
+
+.user-profile-form button.update-profile {
+  background-color: var(--nav-background);
+  color: var(--btn-color);
+  border-radius: 0.2rem;
+  border: 0.1rem solid var(--btn-color);
+  padding: 0.5rem;
+}
+
+/* Modal Ends */
+
+div.profile-card-container {
+  width: 95%;
+  margin: 0 auto;
+  background-color: var(--primary-color);
+  padding: 1rem;
+  border-radius: 0.4rem;
+}
+
+div.profile-card-img-container {
+  background: url("https://firebasestorage.googleapis.com/v0/b/findme-12c11.appspot.com/o/postImg%2Ftv.jpg?alt=media&token=3465c124-894d-42cf-9ddd-ff892ad11343")
+    center;
+  background-size: cover;
+  border-radius: 0.1rem;
+  height: max(10rem, 12rem);
+  position: relative;
+}
+
+div.profile-card-img-container img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  border: 0.1rem solid var(--btn-color);
+  position: absolute;
+  bottom: -0.8rem;
+  left: 0.5rem;
+}
+
+div.profile-card-details {
+  margin-top: 1.5rem;
+}
+
+p.profile-status {
+  padding: 0.5rem;
+}
+
+div.profile-about {
+  display: flex;
+  justify-content: space-between;
+}

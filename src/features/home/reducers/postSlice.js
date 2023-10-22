@@ -67,6 +67,7 @@ const postSlice = createSlice({
       })
       .addCase(getPosts.fulfilled, (state, action) => {
         state.status = "fulfilled";
+        console.log(action.payload);
         postAdapter.upsertMany(state, action.payload);
       })
       .addCase(getPosts.rejected, (state, action) => {

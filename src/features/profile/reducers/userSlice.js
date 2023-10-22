@@ -3,7 +3,15 @@ import {
   createAsyncThunk,
   createEntityAdapter,
 } from "@reduxjs/toolkit";
-import { collection, db, addDoc, onSnapshot, getDocs } from "../../index";
+import {
+  collection,
+  db,
+  addDoc,
+  onSnapshot,
+  getDocs,
+  updateDoc,
+  doc,
+} from "../../index";
 // import { addDoc } from "firebase/firestore";
 
 const userAdapter = createEntityAdapter({});
@@ -27,9 +35,23 @@ export const addUser = createAsyncThunk("users/addUser", async (user) => {
 export const getUsers = createAsyncThunk("users/getUsers", async () => {
   const usersDoc = await getDocs(userRef);
   const users = usersDoc.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-
+  console.log("user");
   return users;
 });
+
+export const updateCurrentUserProfile = createAsyncThunk(
+  "user/test",
+  async (data) => {
+    if (!data.id) {
+      throw new Error("User ID is missing in the data.");
+    }
+
+    const userToUpdate = doc(db, "users", data.id);
+    const updateUser = await updateDoc(userToUpdate, data);
+    console.log(data.id);
+    return updateUser;
+  }
+);
 
 const userSlice = createSlice({
   name: "users",
@@ -60,6 +82,13 @@ const userSlice = createSlice({
       .addCase(getUsers.rejected, (state, action) => {
         state.status = "idle";
         state.error = action.payload.error;
+      })
+      .addCase(updateCurrentUserProfile.fulfilled, (state, action) => {
+        if (action.payload) {
+          console.log("Payload exist");
+          console.log(action.payload);
+        }
+        userAdapter.updateOne(state, action.payload);
       });
   },
 });

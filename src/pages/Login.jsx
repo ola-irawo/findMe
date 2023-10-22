@@ -10,7 +10,7 @@ const Login = () => {
     console.log(hanko)
 
     const redirectAfterLogin = useCallback(() => {
-      navigate("/profile");
+      navigate("/user-details");
     }, [navigate]);
 
     useEffect(

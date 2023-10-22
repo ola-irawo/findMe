@@ -84,11 +84,9 @@ const PostModal = () => {
             {
             postImg && uploadProgress < 100 && 
             <div className="profile-progress">
-                {/* <div> */}
-                    <div className="progress" style={{width: `${uploadProgress}%`}}>
-                    </div>
-                    <p>Getting Image...</p>
-                {/* </div> */}
+                <div className="progress" style={{width: `${uploadProgress}%`}}>
+                </div>
+                <p>Getting Image... {parseInt(uploadProgress)}%</p>
             </div>
             }
             <button className="close-post-modal" onClick={() => dispatch(changePostModal(false))}><FaWindowClose /></button>
@@ -108,13 +106,14 @@ const PostModal = () => {
                 />
                 
                 <div className="post-modal-file-container">
-                    <label htmlFor="file">
+                    <label htmlFor="hide-file">
                         <FaImage className="post-file-icon" />
                         <input 
                         type="file" 
-                        id="file" 
+                        id="hide-file" 
                         className="post-modal-file" 
                         onChange={(e) => setPostImg(e.target.files[0])}/>
+                        {/* <small>{postImg.name.slice(0, 7)}</small> */}
                     </label>
 
                     <button className="post-modal-btn">Post </button>

@@ -6,6 +6,8 @@ import {
   onSnapshot,
   getDocs,
   serverTimestamp,
+  updateDoc,
+  doc,
 } from "firebase/firestore";
 import { uploadBytesResumable, ref, getDownloadURL } from "firebase/storage";
 import userSlice from "./profile/reducers/userSlice";
@@ -19,6 +21,8 @@ import {
   getCurrentUser,
 } from "./profile/reducers/userSlice";
 import { getUsers } from "./profile/reducers/userSlice";
+import ProfileCard from "./userProfile/componets/profileCard/ProfileCard";
+import ProfileLayout from "./userProfile/componets/profileLayout/ProfileLayout";
 
 export {
   db,
@@ -27,6 +31,8 @@ export {
   addDoc,
   onSnapshot,
   getDocs,
+  updateDoc,
+  doc,
   Post,
   storage,
   ref,
@@ -39,4 +45,6 @@ export {
   selectAllUsers,
   ProfileModal,
   Button,
+  ProfileCard,
+  ProfileLayout,
 };

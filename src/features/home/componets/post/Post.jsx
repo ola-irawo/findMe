@@ -22,19 +22,8 @@ const Post = () => {
     useEffect(() => {
       dispatch(getCurrentUser(setCurrentUser))
     }, [])
-    console.log(setCurrentUser)
-    console.log(currentUser)
-
-    const add = () => {
-        console.log("adding post")
-        dispatch(addPost({
-          post: "I love cooking", 
-          time: "08: 50 pm",
-          name: currentUser.user_name, 
-          postId: nanoid(), 
-          userUid: currentUser.userUid
-        }))
-    }
+    // console.log(setCurrentUser)
+    // console.log(currentUser)
 
     const postModal = useSelector(getPostModal)
     

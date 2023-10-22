@@ -1,7 +1,7 @@
 import React from 'react'
 import { ProfileModal } from '../features';
 
-const Profile = () => {
+const UserDetails = () => {
 
   return (
     <section>
@@ -10,4 +10,4 @@ const Profile = () => {
   )
 }
 
-export default Profile
+export default UserDetails
