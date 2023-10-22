@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addPost, changePostModal, getPostModal } from '../../../reducers/postSlice'
 import { getCurrentUser, getDownloadURL, ref, selectAllUsers, storage, uploadBytesResumable, getUser } from '../../../..'
 import { nanoid } from '@reduxjs/toolkit'
+import { getCurrentTime } from '../../../../../componets/getCurrentTime'
 
 const PostModal = () => {
     const [post, setPost] = useState("")
@@ -28,7 +29,7 @@ const PostModal = () => {
 
         dispatch(addPost({
             post,
-            time: "01: 50 pm",
+            time: getCurrentTime(),
             name: currentUser.user_name, 
             postId: nanoid(), 
             userUid: currentUser.userUid,
