@@ -1,0 +1,10 @@
+div.filter-input-container {
+  padding: 1rem;
+  border: 0.1rem solid var(--background-color);
+}
+
+input.filter-input {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.4rem;
+}
