@@ -24,6 +24,8 @@ import {
 import { getUsers } from "./profile/reducers/userSlice";
 import ProfileCard from "./userProfile/componets/profileCard/ProfileCard";
 import ProfileLayout from "./userProfile/componets/profileLayout/ProfileLayout";
+import FilterResult from "./filter/componets/filterResult/FilterResult";
+import FilterInput from "./filter/componets/filterInput/FilterInput";
 
 export {
   db,
@@ -49,4 +51,6 @@ export {
   Button,
   ProfileCard,
   ProfileLayout,
+  FilterInput,
+  FilterResult,
 };

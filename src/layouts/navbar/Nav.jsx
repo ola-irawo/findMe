@@ -37,7 +37,7 @@ const Nav = () => {
             <NavLink to={"/search"}><AiOutlineSearch /></NavLink>
           </li>
           <li className="nav-list-item">
-            <NavLink to={"/profile"}><AiOutlineUser /></NavLink>
+            <NavLink to={"/user-profile"}><AiOutlineUser /></NavLink>
           </li>
           <li className="nav-list-item">
             <NavLink to={"/message"}><AiOutlineMessage /></NavLink>

@@ -12,6 +12,8 @@ import Setting from "./pages/Setting";
 import UserDetails from "./pages/UserDetails";
 import UserProfile from "./pages/UserProfile";
 import SinglePost from "./pages/SinglePost";
+import Filter from "./pages/Filter";
+import Message from "./pages/Message";
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
           <Route path="/user-details" element={<UserDetails />} />
           <Route path="/settings" element={<Setting />} />
           <Route path="/user-profile" element={<UserProfile />} />
+          <Route path="/search" element={<Filter />} />
+          <Route path="/message" element={<Message />} />
         </Route>
       </Routes>
 
