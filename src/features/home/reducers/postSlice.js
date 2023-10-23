@@ -4,7 +4,15 @@ import {
   createAsyncThunk,
 } from "@reduxjs/toolkit";
 
-import { db, collection, onSnapshot, getDocs } from "../../index";
+import {
+  db,
+  collection,
+  onSnapshot,
+  getDocs,
+  deleteDoc,
+  doc,
+  updateDoc,
+} from "../../index";
 import { addDoc } from "firebase/firestore";
 
 const postAdapter = createEntityAdapter({});
@@ -29,6 +37,21 @@ export const getPosts = createAsyncThunk("posts/getPosts", async () => {
     id: doc.id,
   }));
   return posts;
+});
+
+export const deletePost = createAsyncThunk(
+  "posts/deletePost",
+  async (postId) => {
+    const postToDelete = doc(db, "posts", postId);
+    const deletedPost = deleteDoc(postToDelete);
+    return deletedPost;
+  }
+);
+
+export const updatePost = createAsyncThunk("posts/updatePost", async (post) => {
+  const postToUpdate = doc(db, "posts", post.id);
+  const updatePost = updateDoc(postToUpdate, post);
+  return updatePost;
 });
 
 const postSlice = createSlice({
@@ -73,6 +96,12 @@ const postSlice = createSlice({
       .addCase(getPosts.rejected, (state, action) => {
         state.status = "idle";
         state.error = action.payload.error;
+      })
+      .addCase(deletePost.fulfilled, (state, action) => {
+        postAdapter.removeOne(state, action.payload);
+      })
+      .addCase(updatePost.fulfilled, (state, action) => {
+        postAdapter.updateOne(state, action.payload);
       });
   },
 });

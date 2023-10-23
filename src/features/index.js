@@ -8,6 +8,7 @@ import {
   serverTimestamp,
   updateDoc,
   doc,
+  deleteDoc,
 } from "firebase/firestore";
 import { uploadBytesResumable, ref, getDownloadURL } from "firebase/storage";
 import userSlice from "./profile/reducers/userSlice";
@@ -33,11 +34,12 @@ export {
   getDocs,
   updateDoc,
   doc,
-  Post,
+  deleteDoc,
   storage,
   ref,
   uploadBytesResumable,
   getDownloadURL,
+  Post,
   addUser,
   getUsers,
   getCurrentUser,

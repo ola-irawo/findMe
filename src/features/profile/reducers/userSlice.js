@@ -40,7 +40,7 @@ export const getUsers = createAsyncThunk("users/getUsers", async () => {
 });
 
 export const updateCurrentUserProfile = createAsyncThunk(
-  "user/test",
+  "user/updateCurrentUserProfile",
   async (data) => {
     if (!data.id) {
       throw new Error("User ID is missing in the data.");

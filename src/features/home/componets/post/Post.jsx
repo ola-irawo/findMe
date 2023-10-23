@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import "./post.css"
 import {db, collection, selectAllUsers, getUsers, serverTimestamp, getUser, getCurrentUser, Button} from"../../../index"
 import { useDispatch, useSelector } from 'react-redux'
-import { addPost, changePostModal, getPostModal, getPosts, selectPostById, selectPostIds, selectPosts } from '../../reducers/postSlice'
+import { addPost, changePostModal, deletePost, getPostModal, getPosts, selectPostById, selectPostIds, selectPosts, updatePost } from '../../reducers/postSlice'
 import { nanoid } from '@reduxjs/toolkit'
 import { FaComment, FaCopy, FaEdit, FaHeart, FaLink, FaPlus, FaShare, FaTrash } from 'react-icons/fa'
 import PostModal from './componets/PostModal'
@@ -21,7 +21,6 @@ const Post = () => {
     const setCurrentUser = allUsers.find(user => user.userUid === userUid)
     // const getCurrentUserProfile = allUsers.find(user => user.id === post.id)
 
-    const getActiveUser = allUsers.find(user => user.userUid)
     useEffect(() => {
       dispatch(getCurrentUser(setCurrentUser))
     }, [])
@@ -50,10 +49,15 @@ const Post = () => {
                     </div>
                   </div>
 
+                 {
+                  userUid === post.userUid 
+                    &&
                   <div className="edit-delete-container">
-                    <Button text={<FaEdit />} />
-                    <Button text={<FaTrash />} />
+                    <Button text={<FaEdit />} handleEvent={() => dispatch(updatePost({id: post.id, post: "update post"}))} />
+                    <Button text={<FaTrash />} handleEvent={() => dispatch(deletePost(post.id))}/>
                   </div>
+                  }
+
                 </div>
 
                 <div className="post-content" onClick={() => navigate(`/${post.id}`)}>
