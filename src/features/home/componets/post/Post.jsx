@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "./post.css"
 import {db, collection, selectAllUsers, getUsers, serverTimestamp, getUser, getCurrentUser, Button} from"../../../index"
 import { useDispatch, useSelector } from 'react-redux'
-import { addPost, changePostModal, deletePost, getPostModal, getPosts, selectPostById, selectPostIds, selectPosts, updatePost } from '../../reducers/postSlice'
+import { addPost, changePostModal, deletePost, getPostModal, getPosts, getWindowWidth, selectPostById, selectPostIds, selectPosts, updatePost } from '../../reducers/postSlice'
 import { nanoid } from '@reduxjs/toolkit'
 import { FaComment, FaCopy, FaEdit, FaHeart, FaLink, FaPlus, FaShare, FaTrash } from 'react-icons/fa'
 import PostModal from './componets/PostModal'
@@ -16,6 +16,7 @@ const Post = () => {
     const postsId = useSelector(selectPostIds)
     const postModal = useSelector(getPostModal)
     const currentUser = useSelector(getUser)
+    const windowWidth = useSelector(getWindowWidth)
 
     const userUid = localStorage.getItem("userUid")
     const setCurrentUser = allUsers.find(user => user.userUid === userUid)
@@ -24,30 +25,23 @@ const Post = () => {
       dispatch(getCurrentUser(setCurrentUser))
     }, [])
 
-    const [userProfile, setUserProfile] = useState("")
-
-    const r = (post) => {
-      const getCurrentUserProfile = allUsers.filter(user => user.userUid === post.userUid)
-      console.log(getCurrentUserProfile)
-      setUserProfile(getCurrentUserProfile)
-      return getCurrentUserProfile
-    }
-
-    console.log(userProfile)
+    useEffect(() => {
+      windowWidth >= 800 &&  dispatch(changePostModal(true))
+    }, [])
 
   return (
     <section className="post-section">
-      {postModal && <PostModal />}
+      {windowWidth < 800 ? postModal && <PostModal /> : <PostModal />}
         <div className="post-container">
 
             {posts.map(post => {
-              return <div key={post.id} className="post-details" onLoad={() => r(post)}>
+              return <div key={post.id} className="post-details">
 
                 <div className="post-head">
                   <div className="post-sub-head">
 
                     <div className="post-img-container">
-                      <img src={userProfile.profile_img} alt="" />
+                      <img src={post.profile_img} alt="" />
                     </div>
 
                     <div className="name-date-container">
@@ -95,7 +89,7 @@ const Post = () => {
             })}
         </div>
       
-        <button className="post-btn" onClick={() => dispatch(changePostModal(true))}><FaPlus /></button>
+        {windowWidth < 800 && <button className="post-btn" onClick={() => dispatch(changePostModal(true))}><FaPlus /></button>}
     </section>
   )
 }

@@ -6,6 +6,13 @@ div.brand-logo {
   padding: 0.5rem;
 }
 
+.user-profile-img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  border: 0.1rem solid var(--nav-background);
+}
+
 div.brand-logo span:first-of-type {
   width: 2rem;
   height: 2rem;

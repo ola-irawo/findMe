@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { FaImage, FaTimes, FaWindowClose } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux'
-import { addPost, changePostModal, getPostModal } from '../../../reducers/postSlice'
+import { addPost, changePostModal, getPostModal, getWindowWidth } from '../../../reducers/postSlice'
 import { getCurrentUser, getDownloadURL, ref, selectAllUsers, storage, uploadBytesResumable, getUser } from '../../../..'
 import { nanoid } from '@reduxjs/toolkit'
 import { getCurrentTime } from '../../../../../componets/getCurrentTime'
@@ -14,7 +14,7 @@ const PostModal = () => {
 
     const dispatch = useDispatch()
     const allUsers = useSelector(selectAllUsers)
-    console.log(post)
+    const windowWidth = useSelector(getWindowWidth)
     const userUid = localStorage.getItem("userUid")
 
     const setCurrentUser = allUsers.find(user => user.userUid === userUid)
@@ -33,7 +33,8 @@ const PostModal = () => {
             name: currentUser.user_name, 
             postId: nanoid(), 
             userUid: currentUser.userUid,
-            img: imgUrl
+            img: imgUrl,
+            profile_img: currentUser.profile_img || ""
         }))
         dispatch(changePostModal(false))
     }
@@ -91,11 +92,11 @@ const PostModal = () => {
                 <p>Getting Image... {parseInt(uploadProgress)}%</p>
             </div>
             }
-            <button className="close-post-modal" onClick={() => dispatch(changePostModal(false))}><FaWindowClose /></button>
+           { windowWidth < 800 && <button className="close-post-modal" onClick={() => dispatch(changePostModal(false))}><FaWindowClose /></button>}
 
             <div className="post-modal-user-details">
-                <img src="" alt="" />
-                <h4>James</h4>
+                <img src={currentUser.profile_img} alt={currentUser.user_name} className="post-modal-profile-img" />
+                <h4>{ currentUser.user_name}</h4>
             </div>
 
             <form className="post-modal-form" onSubmit={sendPost}>
@@ -118,7 +119,7 @@ const PostModal = () => {
                         {/* <small>{postImg.name.slice(0, 7)}</small> */}
                     </label>
 
-                    <button className="post-modal-btn">Post </button>
+                    { (post.length || imgUrl) && <button className="post-modal-btn">Post </button>}
                 </div>
             </form>
         </div>

@@ -22,6 +22,7 @@ const initialState = postAdapter.getInitialState({
   error: null,
   count: 0,
   showModal: false,
+  windowWidth: window.innerWidth,
 });
 
 const postRef = collection(db, "posts");
@@ -82,6 +83,9 @@ const postSlice = createSlice({
         };
       },
     },
+    setWindowWidth: (state, action) => {
+      state.windowWidth = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -112,7 +116,9 @@ export const {
   selectIds: selectPostIds,
 } = postAdapter.getSelectors((state) => state.posts);
 
-export const { updateCount, changePostModal } = postSlice.actions;
+export const { updateCount, changePostModal, setWindowWidth } =
+  postSlice.actions;
 export const getPost = (state) => state.posts.count;
+export const getWindowWidth = (state) => state.posts.windowWidth;
 export const getPostModal = (state) => state.posts.showModal;
 export default postSlice.reducer;
