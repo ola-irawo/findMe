@@ -115,7 +115,7 @@ body {
   }
 }
 
-@media (min-width: 100px) {
+@media (min-width: 1000px) {
   div.app-container {
     grid-template-columns: 1fr 3.2fr;
     width: 70%;

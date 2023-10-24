@@ -24,7 +24,6 @@ function App() {
             <div className="app-container">
               <Nav />
               <Outlet />
-              {/* <Widget /> */}
             </div>
           }
         >
@@ -40,8 +39,6 @@ function App() {
           <Route path="/message" element={<Message />} />
         </Route>
       </Routes>
-
-      <Footer />
     </>
   );
 }
