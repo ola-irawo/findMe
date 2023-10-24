@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./post.css"
 import {db, collection, selectAllUsers, getUsers, serverTimestamp, getUser, getCurrentUser, Button} from"../../../index"
 import { useDispatch, useSelector } from 'react-redux'
@@ -19,11 +19,21 @@ const Post = () => {
 
     const userUid = localStorage.getItem("userUid")
     const setCurrentUser = allUsers.find(user => user.userUid === userUid)
-    // const getCurrentUserProfile = allUsers.find(user => user.id === post.id)
 
     useEffect(() => {
       dispatch(getCurrentUser(setCurrentUser))
     }, [])
+
+    const [userProfile, setUserProfile] = useState("")
+
+    const r = (post) => {
+      const getCurrentUserProfile = allUsers.filter(user => user.userUid === post.userUid)
+      console.log(getCurrentUserProfile)
+      setUserProfile(getCurrentUserProfile)
+      return getCurrentUserProfile
+    }
+
+    console.log(userProfile)
 
   return (
     <section className="post-section">
@@ -31,20 +41,19 @@ const Post = () => {
         <div className="post-container">
 
             {posts.map(post => {
-              return <div key={post.id} className="post-details">
+              return <div key={post.id} className="post-details" onLoad={() => r(post)}>
 
                 <div className="post-head">
                   <div className="post-sub-head">
 
                     <div className="post-img-container">
-                      <img src={"https://firebasestorage.googleapis.com/v0/b/fir-login-33c28.appspot.com/o/profile%2FA93EC91F-58DC-417B-A0BC-2ED82FD9CB9E.jpeg?alt=media&token=e51960b3-8efd-445c-8ad5-51a108c20555"} alt="" />
+                      <img src={userProfile.profile_img} alt="" />
                     </div>
 
                     <div className="name-date-container">
                       <h4 className="post-name">{post.name}</h4>
                       <div className="post-date-container">
                         <small className="post-time">{post.time}</small>
-                        <small className="post-year"> Jan, 7, 2023</small>
                       </div>
                     </div>
                   </div>

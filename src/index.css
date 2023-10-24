@@ -104,3 +104,20 @@ code {
 body {
   background-color: var(--background-color);
 }
+
+@media (min-width: 800px) {
+  div.app-container {
+    display: grid;
+    grid-template-columns: 1fr 3.2fr;
+    width: 80%;
+    margin: auto;
+    margin-top: 6rem;
+  }
+}
+
+@media (min-width: 100px) {
+  div.app-container {
+    grid-template-columns: 1fr 3.2fr;
+    width: 70%;
+  }
+}

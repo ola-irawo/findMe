@@ -211,3 +211,19 @@ div.post-interaction {
   justify-content: space-between;
   align-items: center;
 }
+
+@media (min-width: 800px) {
+  div.post-modal-container {
+    position: unset;
+  }
+
+  .post-modal-form textarea {
+    height: 7rem;
+    padding: 0.5rem;
+    width: 100%;
+  }
+
+  button.post-modal-btn {
+    border-radius: 0.2rem;
+  }
+}

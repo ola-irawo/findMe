@@ -31,16 +31,16 @@ const Nav = () => {
       <nav className="nav-container" aria-label="primary navigation">
         <ul className="nav-list">
           <li className="nav-list-item">
-            <NavLink to={"/"}><AiOutlineHome /></NavLink>
+            <NavLink to={"/"}><AiOutlineHome /> { "Home"}</NavLink>
           </li>
           <li className="nav-list-item">
-            <NavLink to={"/search"}><AiOutlineSearch /></NavLink>
+            <NavLink to={"/search"}><AiOutlineSearch /> { "Search"}</NavLink>
           </li>
           <li className="nav-list-item">
-            <NavLink to={"/user-profile"}><AiOutlineUser /></NavLink>
+            <NavLink to={"/user-profile"}><AiOutlineUser /> { "Profile"}</NavLink>
           </li>
           <li className="nav-list-item">
-            <NavLink to={"/message"}><AiOutlineMessage /></NavLink>
+            <NavLink to={"/message"}><AiOutlineMessage /> { "Message"}</NavLink>
           </li>
         </ul>
       </nav>

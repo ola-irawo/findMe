@@ -39,3 +39,45 @@ li.nav-list-item a {
   color: var(--btn-color);
   font-size: var(--nav-font);
 }
+
+@media (min-width: 800px) {
+  /* Header */
+  div.brand-logo {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: unset;
+    padding: 0.5rem;
+    width: 80%;
+    position: fixed;
+    top: 0;
+    background-color: var(--nav-background);
+    z-index: 1;
+  }
+
+  /* Nav */
+  nav.nav-container {
+    position: fixed;
+    background-color: var(--primary-color);
+    bottom: unset;
+    width: unset;
+    padding: 1.5rem;
+    height: 40rem;
+  }
+
+  ul.nav-list {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  li.nav-list-item a {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    gap: 0.6rem;
+    -webkit-gap: 0.6rem;
+    padding: 0.3rem;
+  }
+}

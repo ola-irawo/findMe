@@ -24,7 +24,7 @@ function App() {
             <div className="app-container">
               <Nav />
               <Outlet />
-              <Widget />
+              {/* <Widget /> */}
             </div>
           }
         >
