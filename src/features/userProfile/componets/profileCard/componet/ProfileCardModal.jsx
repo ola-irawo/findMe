@@ -13,7 +13,7 @@ const ProfileCardModal = ({setProfileModal}) => {
     const [uploadProgress, setUploadProgress] = useState(0)
 
     const [profileForm, setProfileForm] = useState({
-        profile_img: profileImgUrl,
+        // profile_img: profileImgUrl,
         user_name: "",
         status: "",
         location: "",
@@ -48,16 +48,16 @@ const ProfileCardModal = ({setProfileModal}) => {
     }
 
 
-    useEffect(() => {
-        if(!profileForm.profile_img){
-            return;
-        }
-        console.log(profileForm.profile_img)
+    // useEffect(() => {
+    //     if(!profileForm.profile_img){
+    //         return;
+    //     }
+    //     console.log(profileForm.profile_img)
         
-        uploadProfileImg()
+    //     uploadProfileImg()
 
-        return () => uploadProfileImg()
-    }, [profileImg.profile_img])
+    //     return () => uploadProfileImg()
+    // }, [profileImg.profile_img])
 
     const dispatch = useDispatch()
     // console.log(getActiveUser.id)
@@ -85,18 +85,18 @@ const ProfileCardModal = ({setProfileModal}) => {
         <h2>Edit Profile</h2>
       <form onSubmit={updateProfileInfo} className="user-profile-form">
 
-        <label htmlFor="file" className="profile-img-label">
-        <Button  text={<FaPlus />} type={"button"} />
+        {/* <label htmlFor="file" className="profile-img-label"> */}
+        {/* <Button  text={<FaPlus />} type={"button"} /> */}
 
-        <input 
+        {/* <input 
             type="file"
             name="profile_img"
             id="file"
             // value={profileForm.profile_img} 
             onChange={handleFormInput}
-         />
+         /> */}
 
-        </label>
+        {/* </label> */}
        
        <label>
             <small>Name:</small>
