@@ -1,46 +1,32 @@
 import React, { useEffect, useState } from 'react'
-import { sM } from '../services/openai/openai'
-import { Button } from '../features'
-import { Configuration, OpenAIApi } from "openai";
+import { OpenAIApi, Configuration } from "openai";
+import MessageBody from '../features/message/componets/messageBody/MessageBody'
+import MessageInput from '../features/message/componets/messageInput/MessageInput'
+import { nanoid } from '@reduxjs/toolkit';
 
-const configuration = new Configuration({
-  apiKey: process.env.REACT_APP_OPENAI_API_KEY,
-});
-
-const openai = new OpenAIApi(configuration);
 
 const Message = () => {
-  openai.createChatCompletion({
-    model: "gpt-3.5-turbo",
-    messages: [{ role: "user", content: "Hello ChatGPT" }],
-  }).then(res => {
-    console.log(res)
-  });
-
-
-
   const [input, setInput] = useState("")
-  
-
-  // const handleSend = async () => {
-  //   const resFromOpenAi = await sendMsgToOpenAi(input)
-  //   console.log(resFromOpenAi)
-  // }
+  const [messageBody, setMessageBody] = useState([{
+    id: nanoid(),
+    bot: "Hi, I'm your personal assitant here to keep you occupy.",
+    user: "",
+  }])
 
   return (
-    <section>
-      Message
-
-      <input
-        type="text"
-        placeholder="Enter message"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
+    <section className="msg-section">
+      <MessageBody 
+        input={input} 
+        setInput={setInput}
+        messageBody={messageBody}
+        setMessageBody={setMessageBody}
       />
 
-      <Button 
-        text={"Send"}
-        // handleEvent={handleSend}
+      <MessageInput 
+        input={input} 
+        setInput={setInput}  
+        messageBody={messageBody}
+        setMessageBody={setMessageBody}
       />
     </section>
   )

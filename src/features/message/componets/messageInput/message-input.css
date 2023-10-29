@@ -1,0 +1,33 @@
+form.msg-container {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  justify-content: space-around;
+  background-color: var(--primary-color);
+  bottom: 5rem;
+  width: 70%;
+  margin: 0 5rem;
+}
+
+textarea.msg-input {
+  border-radius: 0.4rem;
+  padding: 1rem;
+  flex: 1;
+}
+
+textarea.msg-input::-webkit-scrollbar {
+  display: none;
+}
+
+.msg-container button {
+  background-color: transparent;
+}
+
+@media (min-width: 800px) {
+  form.msg-container {
+    width: 50rem;
+    margin: 0;
+    margin-left: 0.7rem;
+  }
+}

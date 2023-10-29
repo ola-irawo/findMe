@@ -78,8 +78,6 @@ const PostModal = () => {
         return () => getImgUrl()
       }, [postImg])
 
-    //   const f = [imgUrl, postImg, uploadProgress >= 100].every(Boolean)
-    //   console.log(f)
 
   return (
     <div className="post-modal-container">
@@ -95,8 +93,8 @@ const PostModal = () => {
            { windowWidth < 800 && <button className="close-post-modal" onClick={() => dispatch(changePostModal(false))}><FaWindowClose /></button>}
 
             <div className="post-modal-user-details">
-                <img src={currentUser.profile_img} alt={currentUser.user_name} className="post-modal-profile-img" />
-                <h4>{ currentUser.user_name}</h4>
+                {/* <img src={currentUser.profile_img} alt={currentUser.user_name} className="post-modal-profile-img" /> */}
+                {/* <h4>{ currentUser.user_name}</h4> */}
             </div>
 
             <form className="post-modal-form" onSubmit={sendPost}>

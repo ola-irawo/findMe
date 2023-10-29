@@ -8,6 +8,17 @@ div.user-profile-modal-container {
   bottom: 0;
   z-index: 1;
   backdrop-filter: blur(0.8rem);
+  padding: 1rem;
+}
+
+.user-profile-modal-container button.close-profile-modal {
+  display: flex;
+  margin-left: auto;
+  margin-top: 2rem;
+  font-size: 2rem;
+  border: 0.1rem solid var(--btn-color);
+  padding: 0.4rem;
+  border-radius: 0.1rem;
 }
 
 form.user-profile-form {
@@ -90,11 +101,11 @@ div.profile-card-container {
 }
 
 div.profile-card-img-container {
-  background: url("https://firebasestorage.googleapis.com/v0/b/findme-12c11.appspot.com/o/postImg%2Ftv.jpg?alt=media&token=3465c124-894d-42cf-9ddd-ff892ad11343")
-    center;
+  /* background: url("https://firebasestorage.googleapis.com/v0/b/findme-12c11.appspot.com/o/postImg%2Ftv.jpg?alt=media&token=3465c124-894d-42cf-9ddd-ff892ad11343")
+    center; */
   background-size: cover;
   border-radius: 0.1rem;
-  height: max(10rem, 12rem);
+  height: max(3rem, 4rem);
   position: relative;
 }
 

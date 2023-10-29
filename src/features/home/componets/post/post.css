@@ -12,6 +12,7 @@ div.post-modal-container {
   right: 0;
   bottom: 0;
   backdrop-filter: blur(0.2rem);
+  margin-top: 1rem;
 }
 
 div.post-modal-wrapper {
@@ -38,7 +39,7 @@ div.profile-progress {
 }
 
 .profile-progress > div {
-  margin-top: 30%;
+  transform: translateY(8rem);
   height: 1rem;
   background-color: var(--btn-color);
   margin-right: 0.5rem;

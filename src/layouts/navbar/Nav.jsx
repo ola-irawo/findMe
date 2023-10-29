@@ -9,6 +9,7 @@ import { FaSignOutAlt } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { getWindowWidth, setWindowWidth } from '../../features/home/reducers/postSlice';
 import { getUser } from '../../features';
+import Logout from '../../pages/Logout';
 
 
 const Nav = () => {
@@ -31,17 +32,19 @@ const Nav = () => {
     <header className="header-container">
       <div className="brand-logo">
 
-          <img src={"currentUser.profile_img"} className="user-profile-img" alt={"currentUser.user_name"} />
+          {/* <img src={"currentUser.profile_img"} className="user-profile-img" alt={"currentUser.user_name"} /> */}
 
-        <div>
+        <div className="brand-container">
           <div>
             <span></span>
             <span></span>
           </div>
+          <h2>FindMe</h2>
         </div>
 
-        <div>
-          <h2><FaSignOutAlt /></h2>
+        <div className="logout-container">
+          <Logout />
+          <small>Logout</small>
         </div>
       </div>
 

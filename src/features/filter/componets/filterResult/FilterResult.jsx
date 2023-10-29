@@ -36,15 +36,14 @@ const FilterResult = () => {
                 <div className="post-head">
                   <div className="post-sub-head">
 
-                    <div className="post-img-container">
-                      <img src={"https://firebasestorage.googleapis.com/v0/b/fir-login-33c28.appspot.com/o/profile%2FA93EC91F-58DC-417B-A0BC-2ED82FD9CB9E.jpeg?alt=media&token=e51960b3-8efd-445c-8ad5-51a108c20555"} alt="" />
-                    </div>
+                    {/* <div className="post-img-container"> */}
+                      {/* <img src={"https://firebasestorage.googleapis.com/v0/b/fir-login-33c28.appspot.com/o/profile%2FA93EC91F-58DC-417B-A0BC-2ED82FD9CB9E.jpeg?alt=media&token=e51960b3-8efd-445c-8ad5-51a108c20555"} alt="" /> */}
+                    {/* </div> */}
 
                     <div className="name-date-container">
                       <h4 className="post-name">{post.name}</h4>
                       <div className="post-date-container">
                         <small className="post-time">{post.time}</small>
-                        <small className="post-year"> Jan, 7, 2023</small>
                       </div>
                     </div>
                   </div>
@@ -59,7 +58,7 @@ const FilterResult = () => {
                   </div>}
                 </div>
 
-                <div className="post-interaction">
+                {/* <div className="post-interaction">
                     <div>
                       <FaHeart />
                     </div>
@@ -71,7 +70,7 @@ const FilterResult = () => {
                     <div>
                       <FaShare />
                     </div>
-                </div>
+                </div> */}
 
               </div>
            

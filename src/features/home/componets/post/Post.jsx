@@ -7,6 +7,7 @@ import { nanoid } from '@reduxjs/toolkit'
 import { FaComment, FaCopy, FaEdit, FaHeart, FaLink, FaPlus, FaShare, FaTrash } from 'react-icons/fa'
 import PostModal from './componets/PostModal'
 import { useNavigate } from 'react-router-dom'
+import LikeComponet from './componets/LikeComponet'
 
 const Post = () => {
     const navigate = useNavigate()
@@ -20,6 +21,7 @@ const Post = () => {
 
     const userUid = localStorage.getItem("userUid")
     const setCurrentUser = allUsers.find(user => user.userUid === userUid)
+    console.log(setCurrentUser)
 
     useEffect(() => {
       dispatch(getCurrentUser(setCurrentUser))
@@ -40,9 +42,9 @@ const Post = () => {
                 <div className="post-head">
                   <div className="post-sub-head">
 
-                    <div className="post-img-container">
+                    {/* <div className="post-img-container">
                       <img src={post.profile_img} alt="" />
-                    </div>
+                    </div> */}
 
                     <div className="name-date-container">
                       <h4 className="post-name">{post.name}</h4>
@@ -56,7 +58,6 @@ const Post = () => {
                   userUid === post.userUid 
                     &&
                   <div className="edit-delete-container">
-                    <Button text={<FaEdit />} handleEvent={() => dispatch(updatePost({id: post.id, post: "update post"}))} />
                     <Button text={<FaTrash />} handleEvent={() => dispatch(deletePost(post.id))}/>
                   </div>
                   }
@@ -71,10 +72,11 @@ const Post = () => {
                   </div>}
                 </div>
 
-                <div className="post-interaction">
-                    <div>
-                      <FaHeart />
-                    </div>
+                {/* <div className="post-interaction">
+                    <div> */}
+                      {/* <FaHeart /> */}
+                      {/* <LikeComponet postId={post.id} userUid={currentUser.userUid} /> */}
+                    {/* </div>
 
                     <div>
                       <FaComment />
@@ -83,7 +85,7 @@ const Post = () => {
                     <div>
                       <FaShare />
                     </div>
-                </div>
+                </div> */}
 
               </div>
             })}

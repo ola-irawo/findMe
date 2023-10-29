@@ -1,0 +1,22 @@
+div.msg-body-container {
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+  -webkit-gap: 1rem;
+}
+
+div.ai-msg-container {
+  background-color: var(--btn-color);
+  color: var(--primary-color);
+}
+
+div.user-msg-container {
+  background-color: var(--primary-color);
+}
+
+div.ai-msg-container,
+div.user-msg-container {
+  box-shadow: 0 0.4rem 0.7rem var(--dark-rgb);
+  padding: 1rem;
+  border-radius: 0.4rem;
+}

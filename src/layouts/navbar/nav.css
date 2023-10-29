@@ -3,7 +3,7 @@ div.brand-logo {
   justify-content: space-between;
   align-items: center;
   border-bottom: 0.1rem solid black;
-  padding: 0.5rem;
+  padding: 2rem;
 }
 
 .user-profile-img {
@@ -11,6 +11,12 @@ div.brand-logo {
   height: 5rem;
   border-radius: 50%;
   border: 0.1rem solid var(--nav-background);
+}
+
+div.brand-container,
+div.logout-container {
+  display: grid;
+  place-items: center;
 }
 
 div.brand-logo span:first-of-type {
@@ -51,7 +57,6 @@ li.nav-list-item a {
   /* Header */
   div.brand-logo {
     display: flex;
-    justify-content: space-around;
     align-items: center;
     border-bottom: unset;
     padding: 0.5rem;
@@ -62,6 +67,10 @@ li.nav-list-item a {
     z-index: 1;
   }
 
+  div.brand-container {
+    margin-left: 3rem;
+  }
+
   /* Nav */
   nav.nav-container {
     position: fixed;
@@ -70,6 +79,7 @@ li.nav-list-item a {
     width: unset;
     padding: 1.5rem;
     height: 40rem;
+    margin-top: 1rem;
   }
 
   ul.nav-list {
@@ -86,5 +96,19 @@ li.nav-list-item a {
     gap: 0.6rem;
     -webkit-gap: 0.6rem;
     padding: 0.3rem;
+  }
+
+  .brand-container h2 {
+    color: var(--primary-color);
+  }
+
+  .logout-container {
+    margin-right: 3rem;
+  }
+
+  .logout-container button,
+  .logout-container {
+    background-color: transparent;
+    color: var(--primary-color);
   }
 }

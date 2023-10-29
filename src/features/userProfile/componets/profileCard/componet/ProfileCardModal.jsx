@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import Button from '../../../../../componets/Button'
-import { FaPlus } from 'react-icons/fa'
+import { FaCross, FaPlus } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux'
 import { getDownloadURL, ref, selectAllUsers, storage, uploadBytesResumable } from '../../../..'
 import { updateCurrentUserProfile } from '../../../../profile/reducers/userSlice'
 
-const ProfileCardModal = () => {
+const ProfileCardModal = ({setProfileModal}) => {
     const allUsers = useSelector(selectAllUsers)
     const getActiveUser = allUsers.find(user => user.userUid === localStorage.getItem("userUid"))
     
@@ -81,7 +81,8 @@ const ProfileCardModal = () => {
 
   return (
     <div className="user-profile-modal-container">
-        <Button text={"Cancel"} /><h2>Edit Profile</h2>
+        <Button text={"X"} handleEvent={() => setProfileModal(false)} className={"close-profile-modal"}/>
+        <h2>Edit Profile</h2>
       <form onSubmit={updateProfileInfo} className="user-profile-form">
 
         <label htmlFor="file" className="profile-img-label">

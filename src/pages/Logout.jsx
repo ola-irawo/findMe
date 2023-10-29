@@ -1,33 +1,31 @@
 import React, { useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { Hanko } from "@teamhanko/hanko-elements";
+import { hanko } from "../services/hankoAuth/hanko";
+import { FaSignOutAlt } from "react-icons/fa";
 
 const Logout = () => {
   const navigate = useNavigate();
   const [hankoInstance, setHankoInstance] = useState("");
 
-  const hankoApi = process.env.REACT_APP_HANKO_API_URL
-  const hanko = new Hanko(hankoApi);
-
-  const g = async () => {
+  const userInstance = async () => {
     const user = await hankoInstance.user
-    console.log(user.getAuthCookie())
   }
 
   useEffect(() => {
     setHankoInstance(hanko)
-    g()
+    userInstance()
   }, [])
 
   const signOut = async () => {
     if(hankoInstance){
       console.log("logging out")
       hankoInstance?.user.logout()
-      navigate("/")
+      navigate("/login")
     }
   }
 
-  return <button onClick={signOut}>Logout</button>
+  return <button onClick={signOut}><FaSignOutAlt /></button>
 }
 
 export default Logout;

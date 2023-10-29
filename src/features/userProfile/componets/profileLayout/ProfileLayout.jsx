@@ -18,13 +18,12 @@ const ProfileLayout = () => {
        <div className="post-container">
             {currentUserPost.map(post => {
             return <div key={post.id} className="post-details">
-
                 <div className="post-head">
                 <div className="post-sub-head">
 
-                    <div className="post-img-container">
+                    {/* <div className="post-img-container">
                     <img src={activeUser.profile_img} alt="" />
-                    </div>
+                    </div> */}
 
                     <div className="name-date-container">
                     <h4 className="post-name">{post.name}</h4>
@@ -36,7 +35,6 @@ const ProfileLayout = () => {
                 </div>
 
                 <div className="edit-delete-container">
-                    <Button text={<FaEdit />} />
                     <Button text={<FaTrash />} />
                 </div>
                 </div>
@@ -48,7 +46,7 @@ const ProfileLayout = () => {
                 </div>}
                 </div>
 
-                <div className="post-interaction">
+                {/* <div className="post-interaction">
                     <div>
                     <FaHeart />
                     </div>
@@ -60,7 +58,7 @@ const ProfileLayout = () => {
                     <div>
                     <FaShare />
                     </div>
-                </div>
+                </div> */}
 
             </div>
             })}

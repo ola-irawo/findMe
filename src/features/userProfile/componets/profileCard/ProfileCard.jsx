@@ -1,17 +1,19 @@
-import React, { useEffect } from 'react'
-import { FaBirthdayCake, FaCalendar, FaMapMarker } from 'react-icons/fa'
+import React, { useEffect, useState } from 'react'
+import { FaBirthdayCake, FaCalendar, FaEdit, FaMapMarker } from 'react-icons/fa'
 import "./profile-card.css"
 import { useDispatch, useSelector } from 'react-redux'
-import { getCurrentUser, selectAllUsers, getUser } from '../../..'
+import { getCurrentUser, selectAllUsers, getUser, Button } from '../../..'
 import ProfileCardModal from './componet/ProfileCardModal'
 
 const ProfileCard = () => {
+    const [profileModal, setProfileModal] = useState(false)
+
     const dispatch = useDispatch()
     const currentUser = useSelector(getUser)
     const allUsers = useSelector(selectAllUsers)
 
     const getActiveUser = allUsers.find(user => user.userUid === localStorage.getItem("userUid"))
-    // console.log(getActiveUser)
+    console.log(getActiveUser)
 
     useEffect(() => {
         dispatch(getCurrentUser(getActiveUser))
@@ -19,10 +21,11 @@ const ProfileCard = () => {
 
   return (
     <section className="profile-card-section">
-        {/* <ProfileCardModal /> */}
+        {profileModal && <ProfileCardModal setProfileModal={setProfileModal} />}
       <div className="profile-card-container">
-        <div className="profile-card-img-container" style={{background: `url(${getActiveUser.profile_img})`}}>
+        <div className="profile-card-img-container">
             <img src={getActiveUser.profile_img} alt="" className="profile-card-img" />
+            <Button text={<FaEdit /> } handleEvent={() => setProfileModal(true)}/>
         </div>
 
         <div className="profile-card-details">
@@ -36,7 +39,6 @@ const ProfileCard = () => {
             </div>
         </div>
       </div>
-
     </section>
   )
 }

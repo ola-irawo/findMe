@@ -35,9 +35,6 @@ const ProfileModal = () => {
         }
     }, [])
 
-    const u = useSelector(getUser)
-    console.log(u)
-
     const handleForm = (e) => {
         const {name, value} = e.target
         setFormData(oldData => {
@@ -75,7 +72,6 @@ const ProfileModal = () => {
     <div className="profile-modal-container">
 
       <form onSubmit={formSumbit} className="profile-modal-form">
-        <Button type={"button"} text={"x"} className={"close-profile-modal"} />
 
         <label htmlFor="user_name">
             <small>Name:</small>
@@ -86,6 +82,7 @@ const ProfileModal = () => {
                 placeholder="User Name"
                 value={formData.user_name}
                 onChange={handleForm}
+                required
             />
         </label>
 
@@ -125,7 +122,7 @@ const ProfileModal = () => {
             />
         </label>
         
-        <Button text={"Update Profile"} />
+        <Button text={"Set Profile"} />
       </form>
     </div>
   )

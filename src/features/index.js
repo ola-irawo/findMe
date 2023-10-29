@@ -9,6 +9,7 @@ import {
   updateDoc,
   doc,
   deleteDoc,
+  setDoc,
 } from "firebase/firestore";
 import { uploadBytesResumable, ref, getDownloadURL } from "firebase/storage";
 import userSlice from "./profile/reducers/userSlice";
@@ -26,6 +27,8 @@ import ProfileCard from "./userProfile/componets/profileCard/ProfileCard";
 import ProfileLayout from "./userProfile/componets/profileLayout/ProfileLayout";
 import FilterResult from "./filter/componets/filterResult/FilterResult";
 import FilterInput from "./filter/componets/filterInput/FilterInput";
+import MessageBody from "./message/componets/messageBody/MessageBody";
+import MessageInput from "./message/componets/messageInput/MessageInput";
 
 export {
   db,
@@ -41,6 +44,7 @@ export {
   ref,
   uploadBytesResumable,
   getDownloadURL,
+  setDoc,
   Post,
   addUser,
   getUsers,
@@ -53,4 +57,6 @@ export {
   ProfileLayout,
   FilterInput,
   FilterResult,
+  MessageBody,
+  MessageInput,
 };

@@ -8,13 +8,6 @@ div.profile-modal-container {
   padding: 1rem;
 }
 
-button.close-profile-modal {
-  justify-self: end;
-  padding: 0.2rem 0.5rem;
-  border-radius: 0.2rem;
-  border: 0.1rem solid black;
-}
-
 form.profile-modal-form {
   width: max(60%, 62%);
   margin: 0 auto;
@@ -32,10 +25,17 @@ form.profile-modal-form {
   flex-direction: column;
 }
 
+.profile-modal-form label:first-of-type {
+  margin-top: 1.5rem;
+}
+
 .profile-modal-form label input {
   padding: 1rem;
 }
 
 .profile-modal-form button:last-of-type {
   padding: 1rem;
+  background-color: var(--btn-color);
+  color: var(--primary-color);
+  border-radius: 0.2rem;
 }
