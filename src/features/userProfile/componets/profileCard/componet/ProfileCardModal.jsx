@@ -21,7 +21,7 @@ const ProfileCardModal = ({setProfileModal}) => {
         userUid: localStorage.getItem("userUid"),
         id: getActiveUser.id
     })
-    const [profileImg, setProfileImg] = useState(profileForm.profile_img)
+    // const [profileImg, setProfileImg] = useState(profileForm.profile_img)
 
     const acceptedFileTypes = ["image/jpeg", "image/png"]
 
@@ -43,7 +43,6 @@ const ProfileCardModal = ({setProfileModal}) => {
             }));
 
             setProfileImgUrl(getProfileImgUrl)
-            console.log(profileForm.profile_img.name)
         })
     }
 
@@ -76,7 +75,7 @@ const ProfileCardModal = ({setProfileModal}) => {
     const updateProfileInfo = async (e) => {
         e.preventDefault()
         dispatch(updateCurrentUserProfile(profileForm))
-        console.log(profileForm)
+        setProfileModal(false)
     }
 
   return (
