@@ -163,12 +163,6 @@ div.post-img-container {
   border-radius: 50%;
 }
 
-div.edit-delete-container {
-  flex: 0.15;
-  display: flex;
-  justify-content: space-between;
-}
-
 div.edit-delete-container button {
   border-radius: 50%;
   width: 2rem;

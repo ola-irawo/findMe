@@ -55,6 +55,11 @@ export const updatePost = createAsyncThunk("posts/updatePost", async (post) => {
   return updatePost;
 });
 
+// export const postLike = createAsyncThunk("posts/postLike", async (post) => {
+//   const postToLike = doc(db, "posts", { post });
+//   set;
+// });
+
 const postSlice = createSlice({
   name: "posts",
   initialState,
@@ -94,7 +99,6 @@ const postSlice = createSlice({
       })
       .addCase(getPosts.fulfilled, (state, action) => {
         state.status = "fulfilled";
-        console.log(action.payload);
         postAdapter.upsertMany(state, action.payload);
       })
       .addCase(getPosts.rejected, (state, action) => {

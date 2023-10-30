@@ -107,6 +107,14 @@ div.profile-card-img-container {
   border-radius: 0.1rem;
   height: max(3rem, 4rem);
   position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+button.open-profile-modal {
+  align-self: end;
+  color: var(--btn-color);
+  background-color: transparent;
 }
 
 div.profile-card-img-container img {

@@ -10,6 +10,7 @@ import UserProfile from "./pages/UserProfile";
 import SinglePost from "./pages/SinglePost";
 import Filter from "./pages/Filter";
 import Message from "./pages/Message";
+import ProtectedRoute from "./componets/ProtectedRoute";
 
 function App() {
   return (
@@ -24,14 +25,16 @@ function App() {
             </div>
           }
         >
-          <Route path="/" element={<Home />} />
-          <Route path=":id" element={<SinglePost />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="/" element={<Home />} />
+            <Route path=":id" element={<SinglePost />} />
+            <Route path="/settings" element={<Setting />} />
+            <Route path="/user-profile" element={<UserProfile />} />
+            <Route path="/search" element={<Filter />} />
+            <Route path="/message" element={<Message />} />
+            <Route path="/user-details" element={<UserDetails />} />
+          </Route>
           <Route path="/error" element={<ErrorPage />} />
-          <Route path="/user-details" element={<UserDetails />} />
-          <Route path="/settings" element={<Setting />} />
-          <Route path="/user-profile" element={<UserProfile />} />
-          <Route path="/search" element={<Filter />} />
-          <Route path="/message" element={<Message />} />
         </Route>
       </Routes>
     </>

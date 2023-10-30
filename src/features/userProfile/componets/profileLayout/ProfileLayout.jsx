@@ -12,7 +12,6 @@ const ProfileLayout = () => {
     const allUsers = useSelector(selectAllUsers)
     const activeUser = allUsers.find(user => user.userUid === localStorage.getItem("userUid"))
     const currentUserPost = allPosts.filter(post => post.userUid === localStorage.getItem("userUid"))
-    console.log(activeUser)
   return (
     <section>
        <div className="post-container">

@@ -30,23 +30,12 @@ export const addUser = createAsyncThunk("users/addUser", async (user) => {
   await addDoc(userRef, user);
 });
 
-const u = [];
-
 export const getUsers = createAsyncThunk("users/getUsers", async () => {
   const usersDoc = await getDocs(userRef);
   const users = usersDoc.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
 
-  onSnapshot(userRef, (snapshot) => {
-    snapshot.forEach((doc) => {
-      u.push({ ...doc.data(), id: doc.id });
-    });
-    // return users;
-  });
-
   return users;
 });
-
-console.log(u);
 
 export const updateCurrentUserProfile = createAsyncThunk(
   "user/updateCurrentUserProfile",

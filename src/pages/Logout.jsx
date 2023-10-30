@@ -22,6 +22,7 @@ const Logout = () => {
       console.log("logging out")
       hankoInstance?.user.logout()
       navigate("/login")
+      localStorage.clear()
     }
   }
 
