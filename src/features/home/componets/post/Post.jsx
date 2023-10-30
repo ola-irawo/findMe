@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "./post.css"
-import {db, collection, selectAllUsers, getUsers, serverTimestamp, getUser, getCurrentUser, Button} from"../../../index"
+import {db, collection, selectAllUsers, getUsers, serverTimestamp, getUser, getCurrentUser, Button, onSnapshot} from"../../../index"
 import { useDispatch, useSelector } from 'react-redux'
 import { addPost, changePostModal, deletePost, getPostModal, getPosts, getWindowWidth, selectPostById, selectPostIds, selectPosts, updatePost } from '../../reducers/postSlice'
 import { nanoid } from '@reduxjs/toolkit'
@@ -21,7 +21,6 @@ const Post = () => {
 
     const userUid = localStorage.getItem("userUid")
     const setCurrentUser = allUsers.find(user => user.userUid === userUid)
-    console.log(setCurrentUser)
 
     useEffect(() => {
       dispatch(getCurrentUser(setCurrentUser))
@@ -29,6 +28,24 @@ const Post = () => {
 
     useEffect(() => {
       windowWidth >= 800 &&  dispatch(changePostModal(true))
+    }, [])
+
+    const userRef = collection(db, "users")
+    const [u, setU] = useState({})
+
+    const gU = async () => {
+      onSnapshot(userRef, (snapshot) => {
+        snapshot.forEach((doc) => {
+          setU([{ ...doc.data(), id: doc.id }])
+        });
+      });
+    }
+
+    console.log(u)
+    console.log("test")
+
+    useEffect(() => {
+      gU()
     }, [])
 
   return (
