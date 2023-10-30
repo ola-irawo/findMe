@@ -56,9 +56,9 @@ const Nav = () => {
           <li className="nav-list-item">
             <NavLink to={"/search"}><AiOutlineSearch /> {windowWidth >= 800 && "Search"}</NavLink>
           </li>
-          <li className="nav-list-item">
+          {/* <li className="nav-list-item">
             <NavLink to={"/user-profile"}><AiOutlineUser /> {windowWidth >= 800 && "Profile"}</NavLink>
-          </li>
+          </li> */}
           <li className="nav-list-item">
             <NavLink to={"/message"}><AiOutlineMessage /> {windowWidth >= 800 && "Message"}</NavLink>
           </li>

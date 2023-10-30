@@ -29,12 +29,12 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path=":id" element={<SinglePost />} />
             <Route path="/settings" element={<Setting />} />
-            <Route path="/user-profile" element={<UserProfile />} />
+            {/* <Route path="/user-profile" element={<UserProfile />} /> */}
             <Route path="/search" element={<Filter />} />
             <Route path="/message" element={<Message />} />
             <Route path="/user-details" element={<UserDetails />} />
           </Route>
-          <Route path="/error" element={<ErrorPage />} />
+          <Route path="/*" element={<ErrorPage />} />
         </Route>
       </Routes>
     </>
